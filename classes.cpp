@@ -1,3 +1,5 @@
+//ZhangRichard Classes.cpp
+//includes similar to java imports
 #include <iostream>
 #include <vector>
 #include <cstring>
@@ -34,6 +36,7 @@ int main() {
 }
 
 // Functions
+//Adding video game, music, movies
 void add(vector<Media*>* db) {
   char title[100];
   char year[100];
@@ -46,7 +49,7 @@ void add(vector<Media*>* db) {
   
   cout << "Is it: (1) a video game, \n (2) music, or \n (3) movies? \n Enter a number." << endl;
   cin >> input;
-  
+  //adding video game
   if (input == 1) {
     char rating[100];
     char publisher[100];
@@ -60,13 +63,13 @@ void add(vector<Media*>* db) {
     db -> push_back(videogame);
     
     cout << title << " successfully added to the database." << endl;
-  } else if (input == 2) {
+  } else if (input == 2) {//adding music
     char publisher[100];
     char artist[100];
     char duration[100];
     
     cout << "Who's the publisher?" << endl;
-    cin >> publisher;
+    cin >> publisher; 
     cout << "Who's the artist?" << endl;
     cin >> artist;
     cout << "What's the duration?" << endl;
@@ -76,7 +79,7 @@ void add(vector<Media*>* db) {
     db -> push_back(music);
     
     cout << title << " successfully added to the database." << endl;
-  } else if (input == 3) {
+  } else if (input == 3) {//adding movies
     char director[100];
     char duration[100];
     char rating[100];
@@ -95,13 +98,14 @@ void add(vector<Media*>* db) {
   }
 }
 
+//searching through a vector via title/year
 void search(vector<Media*> db) {
   int input;
   
   cout << "Would you like to search by (1) title or (2) year?" << endl;
   cin >> input;
   
-  if (input == 1) {
+  if (input == 1) {//search through title
     char title[100];
     
     cout << "What's the title?" << endl;
@@ -120,7 +124,7 @@ void search(vector<Media*> db) {
         }
       }
     }
-  } else if (input == 2) {
+  } else if (input == 2) {//searching through year
     char year[100];
     
     cout << "What year was it released in?" << endl;
@@ -138,20 +142,21 @@ void search(vector<Media*> db) {
           ((Movie*) db[i]) -> printInfo();
         }
       }
-      else {
+      else {//if nothing has been found
         cout << " " << endl;
       }
     }
 }
 }
 
+//deleting a specific datatype
 void del(vector<Media*>* db) {
   int input;
   
   cout << "Would you like to delete by (1) title or (2) year?" << endl;
   cin >> input;
   
-  if (input == 1) {
+  if (input == 1) {//deleting by title
     char title[100];
     
     cout << "What's the title?" << endl;
@@ -173,7 +178,7 @@ void del(vector<Media*>* db) {
         }
       }
     }
-  } else if (input == 2) {
+  } else if (input == 2) {//deleting by year
     char year[100];
     
     cout << "What year was it released in?" << endl;
